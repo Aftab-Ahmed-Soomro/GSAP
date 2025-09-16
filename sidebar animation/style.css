@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.page3 {
+    width: 400vw; /* Make it 4x the viewport width for 4 boxes */
+    height: 100vh;
+    background-color: seashell;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.page3 .box1,
+.page3 .box2,
+.page3 .box3,
+.page3 .box4 {
+    width: 15vw;
+    height: 15vw;
+    min-width: 200px;
+    min-height: 200px;
+    margin: 0 2vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page3 .box1 {
+    transform: translateX(-100%);
+}
+
+.page3 .box1 { background-color: aqua; }
+.page3 .box2 { background-color: aquamarine; }
+.page3 .box3 { background-color: blueviolet; }
+.page3 .box4 { background-color: brown; }
