@@ -44,7 +44,7 @@ function page2Animation() {
     scrollTrigger: {
         trigger: ".section1bottom img",
         scroller: "body",
-        markers: true,
+        // markers: true,
         start: "top 70%",
         end: "top 0%",
         scrub: 2
@@ -55,7 +55,7 @@ var tl2 = gsap.timeline({
     scrollTrigger: {
         trigger: ".section2",
         scroller: "body",
-        markers: true,
+        // markers: true,
         start: "top 50%",
         end: "top 0%",
         scrub: 2
