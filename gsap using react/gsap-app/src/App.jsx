@@ -22,7 +22,12 @@ const App = () => {
       duration: 0.5
     })
   },[circle, roti, moti])
+
+  // ********************** important to note **************************
+
   // {scope:'main', dependencies:[randomX, randomY, randomRoti]}
+
+  // {contextSafe} --> cover afterwards
 
   return (
     <main>
