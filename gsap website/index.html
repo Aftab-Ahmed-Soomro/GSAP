@@ -3,14 +3,375 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>WizardZ</title>
     <link
         href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
         rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+    overflow-x: hidden;
+    }
+
+    #cursor {
+    height: 20px;
+    width: 20px;
+    background-color: black;
+    border-radius: 50%;
+    position: fixed;
+    font-size: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 9;
+    }
+
+    .hello-banner {
+        height: 100vh;
+    }
+
+    .hello-banner h1 {
+    font-family: "Bungee", sans-serif;
+    font-size: 400px;
+    color: black;
+    font-size: 20.5vw;
+    font-weight: 800;
+    letter-spacing: -0.4vw;
+    line-height: 0.9;
+    margin-top: 10vw;
+    margin-bottom: 10vw;
+    }
+
+    section {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    }
+
+    nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 70px;
+    }
+
+    .part2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    }
+
+    nav h1 {
+    font-size: 30px;
+    }
+
+    nav h4 {
+    font-size: 15px;
+    font-weight: 500;
+    }
+
+    nav button {
+    padding: 10px 20px;
+    font-size: 15px;
+    background-color: transparent;
+    font-weight: 600;
+    border-radius: 10px;
+    border: 2px solid #000;
+    }
+
+    nav h1 i {
+    rotate: 45deg;
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 30px;
+    }
+
+    .center {
+    padding: 70px 70px 30px 70px;
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: space-between;
+    }
+
+    .center-part1 {
+    height: 100%;
+    width: 44%;
+    }
+
+    .center-part1 h1 {
+    line-height: 1.2;
+    font-size: 50px;
+    font-family: monospace;
+    }
+
+    .center-part1 p {
+    font-size: 15px;
+    width: 95%;
+    margin-top: 30px;
+    margin-bottom: 25px;
+    }
+
+    .center-part1 button {
+    background-color: black;
+    color: #fff;
+    border-radius: 10px;
+    padding: 13px 15px;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    }
+
+    .center-part2 {
+    height: 100%;
+    width: 56%;
+    display: flex;
+    justify-content: flex-end;
+    }
+
+    .center-part2 img {
+    height: 100%;
+    width: 70%;
+    }
+
+    .section1bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 70px;
+    }
+
+    .section1bottom img {
+    height: 80px;
+    }
+
+    .section2 .services {
+    padding: 15px 70px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 40px;
+    margin-top: 15px;
+    }
+
+    .services h3 {
+    background-color: #9ae975;
+    font-weight: 500;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 30px;
+    }
+
+    .services p {
+    width: 40%;
+    font-size: 12px;
+    font-weight: 500;
+    }
+
+    .container {
+    height: 86%;
+    width: 100%;
+    padding: 20px 70px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 50px;
+    }
+
+    .elem {
+    height: 200px;
+    width: 47%;
+    border: 2px solid #000;
+    border-radius: 25px;
+    flex-shrink: 0;
+    box-shadow: 0px 8px 0px #000;
+    padding: 30px;
+    display: flex;
+    }
+
+    .elem-part1 {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+    }
+
+    .elem-part2 {
+    height: 100%;
+    width: 50%;
+    }
+
+    .elem-part2 img {
+    height: 100%;
+    }
+
+    .elem-part1 h2 {
+    font-size: 28px;
+    font-weight: 500;
+    gap: 5px;
+    height: min-content;
+    width: 80%;
+    background-color: #9ae975;
+    border-radius: 10px;
+    }
+
+    .elem-part1 h4 {
+    display: flex;
+    align-items: center;
+    font-size: 17px;
+    font-weight: 500;
+    gap: 8px;
+    }
+
+    .elem-part1 h4 i {
+    padding: 4px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 50%;
+    }
+
+    .black {
+    background-color: #000;
+    }
+
+    .black .elem-part1 h2 {
+    background-color: #fff;
+    }
+    .black .elem-part1 h4 {
+    color: #fff;
+    }
+
+    .black .elem-part1 h4 i {
+    background-color: #fff;
+    color: #000;
+    }
+
+    footer {
+    background-color: #000;
+    color: #fff;
+    padding: 0px 70px 30px;
+    width: 100%;
+    }
+
+    .footer-top {
+    text-align: center;
+    margin-bottom: 40px;
+    }
+
+    .footer-top h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    }
+
+    .footer-top h2 i {
+    rotate: 45deg;
+    display: inline-block;
+    margin-right: 8px;
+    color: #9ae975;
+    }
+
+    .footer-top p {
+    font-size: 14px;
+    max-width: 500px;
+    margin: 0 auto 20px;
+    line-height: 1.6;
+    color: #ccc;
+    }
+
+    .footer-top .socials i {
+    font-size: 22px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    }
+
+    .footer-top .socials i:hover {
+    color: #9ae975;
+    transform: scale(1.2);
+    }
+
+    .footer-links {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    text-align: left;
+    }
+
+    .footer-links div {
+    min-width: 150px;
+    }
+
+    .footer-links h4 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #9ae975;
+    }
+
+    .footer-links a {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+    color: #fff;
+    }
+
+    .footer-bottom {
+    border-top: 1px solid #333;
+    text-align: center;
+    padding-top: 20px;
+    }
+
+    .footer-bottom p {
+    font-size: 13px;
+    color: #888;
+    }
+
+    #string { 
+        height: 200px; 
+        display: grid; 
+        place-items: center; 
+        background-color: #000; 
+    }
+
+    #string svg { 
+        width: 100%; 
+        height: 200px; 
+        display: block; 
+    }
+
+    #string path { 
+        stroke: white; 
+        stroke-width: 2; 
+        fill: none; 
+    }
+</style>
 <body>
+    <div id="cursor"></div>
+    <div id="main">
+        
+    <section class="hello-banner">
+        <h1>WizardZ</h1>
+    </section> 
+
     <section class="section1">
         <nav>
             <h1><i class="ri-shining-2-fill"></i>WizardZ</h1>
@@ -23,6 +384,7 @@
                 <button>Request a quote</button>
             </div>
         </nav>
+
         <div class="center">
             <div class="center-part1">
                 <h1>Navigating the digital landscape for success</h1>
@@ -42,6 +404,7 @@
             <img src="https://www.citypng.com/public/uploads/preview/hd-black-zoom-text-logo-transparent-png-701751694778202hqzbkjjx75.png?v=2025091708" alt="">
         </div>
     </section>
+    
     <section class="section2">
         <div class="services">
             <h3>Services</h3>
@@ -87,6 +450,12 @@
         </div>
     </section>
 
+    <section id="string" aria-label="Interactive string">
+      <svg viewBox="0 0 1000 200" preserveAspectRatio="none">
+        <path d="M 10 100 Q 500 100 990 100" />
+      </svg>
+    </section>
+
     <footer>
         <div class="footer-top">
             <h2><i class="ri-shining-2-fill"></i> WizardZ</h2>
@@ -100,36 +469,182 @@
             </div>
         </div>
 
-        <div class="footer-links">
-            <div>
-            <h4>Company</h4>
-            <a href="#">About Us</a>
-            <a href="#">Blog</a>
-            <a href="#">Careers</a>
-            </div>
-            <div>
-            <h4>Services</h4>
-            <a href="#">SEO</a>
-            <a href="#">PPC Ads</a>
-            <a href="#">Social Media</a>
-            <a href="#">Email Marketing</a>
-            </div>
-            <div>
-            <h4>Support</h4>
-            <a href="#">Pricing</a>
-            <a href="#">FAQs</a>
-            <a href="#">Contact</a>
-            </div>
-        </div>
-
         <div class="footer-bottom">
             <p>© 2025 WizardZ. All rights reserved.</p>
         </div>
     </footer>
-
+    </div> 
+</div>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="app.js"></script>
+    <script>
+        window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+};
+
+var main = document.querySelector("#main")
+var cursor = document.querySelector("#cursor")
+
+main.addEventListener("mousemove", function(val) {
+    gsap.to(cursor, {
+        x:val.x,
+        y:val.y,
+        duration: 1,
+        // ease: "back.out"
+    })
+})
+
+function TextAnimation () {
+    var tl = gsap.timeline({onStart: () => {
+        // disable horizontal scroll
+        document.body.style.overflowY = "hidden";
+        }})
+        
+        tl.from(".hello-banner h1", {
+            scale: 0,
+            opacity: 0.2,
+            duration: 1,
+            onComplete: () => {
+                gsap.to(".hello-banner h1", {
+                    delay: 1, // wait 1 seconds
+                    duration: 1,
+                    opacity: 0, // fade out
+                    onComplete: () => {
+                        document.querySelector(".hello-banner h1").style.display = "none";
+                        document.querySelector(".hello-banner").style.height = "0px";
+                        // Move the overflow change here
+                        document.body.style.overflowY = "auto";
+                    }
+                });
+            }   
+        })
+}
+
+function page1Animation() {
+    var tl2 = gsap.timeline()
+
+    tl2.from("nav h1, nav h4, nav button", {
+        y: -40,
+        opacity: 0,
+        delay: 2.5,
+        duration: 1,
+        stagger: 0.15
+    })
+
+
+    tl2.from(".center-part1 h1", {
+        x: -200,
+        opacity: 0,
+        duration:0.5
+    }, "-=0.3")
+
+    tl2.from(".center-part1 p", {
+        x: -100,
+        opacity: 0,
+        duration:0.4
+    })
+
+    tl2.from(".center-part1 button", {
+        opacity: 0,
+        duration:0.4
+    })
+
+    tl2.from(".center-part2 img", {
+        opacity: 0,
+        duration: 0.5,
+        x: 200
+    }, "-=0.7")
+}
+
+function page2Animation() {
+    gsap.from(".section1bottom img", {
+    opacity: 0,
+    y: 30,
+    stagger: 0.15,
+    duration: 0.6,
+    scrollTrigger: {
+        trigger: ".section1",
+        scroller: "body",
+        // markers: true,
+        start: "top 90%",
+        end: "top 0%",
+        scrub: 2
+    }
+})
+
+var tl2 = gsap.timeline({
+    scrollTrigger: {
+        trigger: ".section1 .center .center-part2",
+        scroller: "body",
+        // markers: true,
+        start: "top 60%",
+        end: "top 0%",
+        scrub: 2
+    }
+})
+
+tl2.from(".services", {
+    y: 30,
+    opacity: 0,
+    duration: 0.5
+})
+
+tl2.from(".elem.line1.left", {
+    x: -300,
+    opacity: 0,
+    duration: 1
+}, "anim1")
+
+tl2.from(".elem.line1.right", {
+    x: 300,
+    opacity: 0,
+    duration: 1
+}, "anim1")
+
+tl2.from(".elem.line2.left", {
+    x: -300,
+    opacity: 0,
+    duration: 1
+}, "anim2")
+
+tl2.from(".elem.line2.right", {
+    x: 300,
+    opacity: 0,
+    duration: 1
+}, "anim2")
+}
+
+ function string() {
+      const string = document.querySelector('#string');
+      const pathEl = string.querySelector('path');
+      const finalPath = 'M 10 100 Q 500 100 990 100';
+
+      function updatePath(x, y) {
+        const d = `M 10 100 Q ${x} ${y} 990 100`;
+        gsap.to(pathEl, { attr: { d }, duration: 0.3, ease: 'power3.out' });
+      }
+
+      string.addEventListener('mousemove', (e) => {
+        const rect = string.getBoundingClientRect();
+        // mouse position relative to the #string box (not the viewport)
+        const relX = e.clientX - rect.left;
+        const relY = e.clientY - rect.top;
+        // clamp to SVG viewBox range to keep the curve stable
+        const x = gsap.utils.clamp(20, rect.width - 20, relX);
+        const y = gsap.utils.clamp(20, rect.height - 20, relY);
+        updatePath(x, y);
+      });
+
+      string.addEventListener('mouseleave', () => {
+        gsap.to(pathEl, { attr: { d: finalPath }, duration: 1.2, ease: 'elastic.out(1, 0.2)' });
+      });
+}
+
+TextAnimation()
+page1Animation()
+page2Animation()
+string()
+    </script>
 </body>
 </html>
